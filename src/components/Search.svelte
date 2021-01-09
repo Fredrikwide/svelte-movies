@@ -6,7 +6,14 @@
   let searchText;
   let timeOut;
 
-  $: test = searchText + 'this is what we want to add';
+  $: {
+    if (searchText) {
+      clearTimeout(timeOut);
+      timeOut = setTimeout(() => {
+        dispatch('search', { searchText });
+      }, 500);
+    }
+  }
 </script>
 
 <div class="wrapper">

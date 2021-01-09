@@ -52,7 +52,7 @@
   {/if}
 {/if}
 
-<Search />
+<Search on:search={handleSearch} />
 <Grid />
 <Thumb />
 <LoadMoreButton />
