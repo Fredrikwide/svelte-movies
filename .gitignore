@@ -1,0 +1,8 @@
+/node_modules/
+/public/build/
+.env
+.env.local
+.env.development
+.env.prodcution
+.DS_Store
+/steps/
