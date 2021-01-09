@@ -1,7 +1,16 @@
 <script>
+  const svelteLogo = '/images/svelte-logo.svg';
+  const tmdbLogo = '/images/tmdb_logo.svg';
 </script>
 
-Header
+<header class="wrapper">
+  <div class="content">
+    <a href="/" araia-label="Go Home">
+      <img class="svelte-logo" src={svelteLogo} alt="svelte-logo" />
+    </a>
+    <img class="tmdb-logo" src={tmdbLogo} alt="tmdb-logo" />
+  </div>
+</header>
 
 <style>
   .wrapper {

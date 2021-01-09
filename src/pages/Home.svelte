@@ -2,8 +2,9 @@
   //svetle-lifecycle-methods
   import { onMount } from 'svelte';
   import { fetchMovies } from '../api';
+  //config
+  import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../config';
   // components
-  import Header from '../components/Header.svelte';
   import Hero from '../components/Hero.svelte';
   import Search from '../components/Search.svelte';
   import Grid from '../components/Grid.svelte';
@@ -30,13 +31,27 @@
     isLoading = false;
   };
 
+  const handleSearch = event => {
+    console.log(event);
+  };
+
+  //life-cycle
   onMount(async () => {
     handleFetchMovies(false, searchTerm);
   });
 </script>
 
-<Header />
-<Hero />
+{#if error}
+  <p>Something went wrong...</p>
+{:else}
+  {#if movies.heroImage && !searchTerm}
+    <Hero
+      image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${movies.heroImage.backdrop_path}`}
+      title={movies.heroImage.original_title}
+      text={movies.heroImage.overview} />
+  {/if}
+{/if}
+
 <Search />
 <Grid />
 <Thumb />
